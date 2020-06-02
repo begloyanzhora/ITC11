@@ -1,7 +1,7 @@
 #include <iostream>
 
 int main () {
-    int n;
+    int n = 0;
 
     do {
         std::cout << "Enter n: ";
@@ -14,7 +14,7 @@ int main () {
         }
 
         for (int j = 1; j <= (n * 2 - (2 * i -1)); j++) {
-            if (i == 1 || j == 1 || j == (n * 2 - (2 * i - 1) )) {
+            if (i == 1 || j == 1 || j == (n * 2 - (2 * i - 1))) {
                 std::cout << "*";
             } else {
                 std::cout << " ";
