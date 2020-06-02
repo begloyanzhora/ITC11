@@ -3,7 +3,7 @@
 int main () {
     int n;
 
-    do{
+    do {
         std::cout << "Enter n: ";
         std::cin >> n;
     } while (n < 2);
