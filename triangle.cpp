@@ -3,8 +3,10 @@
 int main () {
     int n;
 
-    std::cout << "Enter n: ";
-    std::cin >> n;
+    do{
+        std::cout << "Enter n: ";
+        std::cin >> n;
+    } while (n < 2);
 
     for (int i = 1; i <= n; i++) {
         for (int j = 1; j < i; j++) {
