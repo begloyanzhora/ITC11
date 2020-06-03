@@ -18,10 +18,20 @@ int factWithLoop (int n) {
 }
 
 int main () {
-    int n = 4;
+    int n = 0;
 
-    std::cout << factWithRec (n) << std::endl;
-    std::cout << factWithLoop (n) << std::endl;
+    std::cout << "Please enter the integer number => 0: ";
+    std::cin >> n;
+
+    while (std::cin.fail() || n < 0) {
+        std::cin.clear();
+        std::cin.ignore(10000, '\n');
+        std::cout << "Please reenter the valid number: ";
+        std::cin >> n;
+    }
+
+    std::cout << "Calculate with recursion: " << factWithRec (n) << std::endl;
+    std::cout << "Calculate with loop: " << factWithLoop (n) << std::endl;
 
     return 0;
 }
