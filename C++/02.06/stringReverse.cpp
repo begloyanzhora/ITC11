@@ -22,7 +22,7 @@ int main () {
 	char text[100];
 
 	std::cout << "Please enter the text: ";
-	std::cin >> text;
+	std::cin.getline(text, 100, '\n');
 
     std::cout << "Inputed String: " << text << std::endl;
     std::cout << "Reversed String: " << stringReverse(text) << std::endl;
