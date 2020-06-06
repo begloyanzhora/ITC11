@@ -16,6 +16,7 @@ public:
     void show ();
     void insert (int, int);
     void remove(int);
+    void clear ();
 };
 
 #endif

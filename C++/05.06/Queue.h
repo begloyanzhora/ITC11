@@ -5,6 +5,7 @@
 
 class Queue : protected List {
 public:
+    ~Queue();
     void push (int);
     int shift ();
     int getFirst ();

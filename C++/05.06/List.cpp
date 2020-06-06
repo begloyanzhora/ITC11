@@ -66,12 +66,16 @@ void List::remove (int index) {
     length--;
 }
 
-List::~List () {
+void List::clear () {
     while (length){
-        Node* temp = head;
-        head = head -> pNext;
+    Node* temp = head;
+    head = head -> pNext;
 
-        delete temp;
-        length--;
+    delete temp;
+    length--;
     }
+}
+
+List::~List () {
+    clear();
 }

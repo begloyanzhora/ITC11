@@ -23,3 +23,7 @@ int Queue::getLast () {
 int Queue::length () {
     return getLength();
 }
+
+Queue::~Queue () {
+    clear();
+}

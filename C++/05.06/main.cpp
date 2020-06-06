@@ -13,4 +13,6 @@ int main () {
     std::cout << "Last: " << q.getLast() << std::endl;
     std::cout << "Removed: " << q.shift() << std::endl;
     std::cout << "Length: " << q.length() << std::endl;
+
+    return 0;
 }
