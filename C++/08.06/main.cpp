@@ -1,15 +1,22 @@
 #include "List.h"
-//#include "Queue.h"
+#include "List.cpp"
 #include <iostream>
 
 int main () {
-    List<int> l;
+    List<double> l1;
+    List<int> l2;
 
-    l.insert(45, 0);
-    l.insert(15., 1);
-    l.insert(45, 2);
+    l1.insert(45.5, 0);
+    l1.insert(15.4, 1);
+    l1.insert(45.8, 2);
 
-    std::cout << l.getElemByIndex(0);
-    //l.show();
+    l2.insert(45.5, 0);
+    l2.insert(15.4, 1);
+    l2.insert(45.8, 2);
+
+    l1.show();
+    std::cout << std::endl;
+    l2.show();
+
     return 0;
 }
