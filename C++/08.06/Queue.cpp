@@ -4,32 +4,32 @@
 template<typename T>
 void Queue<T>::push (T elem) {
     int index = length ();
-    insert (elem, index);
+    this->insert (elem, index);
 }
 
 template<typename T>
 T Queue<T>::shift () {
-    int elem = getFirst();
-    remove (0);
+    T elem = getFirst();
+    this->remove (0);
     return elem;
 }
 
 template<typename T>
 T Queue<T>::getFirst () {
-    return getElemByIndex(0);
+    return this->getElemByIndex(0);
 }
 
 template<typename T>
 T Queue<T>::getLast () {
-    return getElemByIndex(length() - 1);
+    return this->getElemByIndex(length() - 1);
 }
 
 template<typename T>
 int Queue<T>::length () {
-    return getLength();
+    return this->getLength();
 }
 
 template<typename T>
 Queue<T>::~Queue () {
-    clear();
+    this->clear();
 }

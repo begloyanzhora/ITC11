@@ -1,5 +1,7 @@
 #include "List.h"
 #include "List.cpp"
+#include "Queue.h"
+#include "Queue.cpp"
 #include <iostream>
 
 int main () {
@@ -17,6 +19,17 @@ int main () {
     l1.show();
     std::cout << std::endl;
     l2.show();
+
+    Queue<double> q;
+
+    q.push(1.5);
+    q.push(4.5);
+    q.push(2.4);
+
+    std::cout << "First: " << q.getFirst() << std::endl;
+    std::cout << "Last: " << q.getLast() << std::endl;
+    std::cout << "Removed: " << q.shift() << std::endl;
+    std::cout << "Length: " << q.length() << std::endl;
 
     return 0;
 }
