@@ -13,5 +13,8 @@ int main () {
         newPic << ch;
     }
 
+    pic.close();
+    newPic.closes();
+
     return 0;
 }
