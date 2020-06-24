@@ -1,9 +1,0 @@
-{
-    "files.associations": {
-        "random": "cpp",
-        "iosfwd": "cpp",
-        "functional": "cpp",
-        "*.tcc": "cpp",
-        "type_traits": "cpp"
-    }
-}
