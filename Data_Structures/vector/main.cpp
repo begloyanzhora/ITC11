@@ -9,6 +9,7 @@ int main () {
 	v.pushBack(5);
 	v.pushBack(10);
 	v.pushBack(15);
+	v.popBack();
 
 	cout << "Pushed into the vector " << v.size() << " elements. These are: " << endl;
 	for (int i = 0; i < v.size(); ++i) {
@@ -33,7 +34,8 @@ int main () {
 
 
 	auto i = v.begin();
-	cout << *(i+2) <<endl;
+	i++;
+	cout << *i <<endl;
 
 	return 0;
 }

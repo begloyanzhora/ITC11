@@ -21,6 +21,9 @@ public:
 
 	Iterator& operator+ (int);
 	Iterator& operator- (int);
+
+	bool operator== (Iterator&);
+	bool operator!= (Iterator&);
 };
 
 template<typename T>
@@ -70,6 +73,17 @@ typename Vector<T>::Iterator& Vector<T>::Iterator::operator- (int n) {
 	ptr -= n;
 	return *this;
 }
+
+template<typename T>
+bool Vector<T>::Iterator::operator== (Iterator& e) {
+	return *ptr == *e.ptr;
+}
+
+template<typename T>
+bool Vector<T>::Iterator::operator!= (Iterator& ne) {
+	return *ptr == *ne.ptr;
+}
+
 
 template<typename T>
 Vector<T>::Iterator::~Iterator() {

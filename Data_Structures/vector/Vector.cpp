@@ -38,6 +38,11 @@ void Vector<T>::pushBack(T elem) {
 }
 
 template<typename T>
+void Vector<T>::popBack() {
+	--rsize;
+}
+
+template<typename T>
 unsigned int Vector<T>::size() {
 	return rsize;
 }

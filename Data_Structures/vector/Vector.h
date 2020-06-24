@@ -15,6 +15,7 @@ public:
 	Vector(const Vector&);
 	~Vector();
 
+	void popBack();
 	void pushBack(T);
 	unsigned int size();
 	unsigned int capacity();
