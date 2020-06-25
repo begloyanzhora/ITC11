@@ -25,9 +25,9 @@ public:
 	Vector<T>& operator=(const Vector<T>&);
 	T operator[](unsigned int);
 	T at(unsigned int);
-    class Iterator;
-    Iterator begin();
-    Iterator end();
+	class Iterator;
+	Iterator begin();
+	Iterator end();
 };
 
 #endif
