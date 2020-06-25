@@ -41,7 +41,7 @@ void Btree<T>::addLeafPrivate(T value, Node<T>* ptr) {
 		}
 
 	} else {
-		std::cout << "The key had already added." << std::endl;
+		std::cout << "This value already added." << std::endl;
 
 	}
 }
@@ -49,4 +49,28 @@ void Btree<T>::addLeafPrivate(T value, Node<T>* ptr) {
 template <typename T>
 void Btree<T>::addLeaf(T value) {
 	addLeafPrivate(value, root);
+}
+
+template <typename T>
+void Btree<T>::printPrivate(Node<T>* ptr) {
+
+	if (root != nullptr) {
+
+		if (ptr->left != nullptr) {
+			printPrivate(ptr->left);
+		}
+		std::cout << ptr->value << "\t";
+
+		if (ptr->right != nullptr) {
+			printPrivate(ptr->right);
+		}
+
+	} else {
+		std::cout << "The tree is empty." << std::endl;
+	}
+}
+
+template <typename T>
+void Btree<T>::print() {
+	printPrivate(root);
 }

@@ -12,15 +12,16 @@ template <typename T>
 class Btree {
 private:
 	Node<T>* root;
-
+	Node<T>* createLeaf(T);
 	void addLeafPrivate(T, Node<T>*);
+	void printPrivate(Node<T>*);
 
 public:
 	Btree();
-	~Btree();
+	/* ~Btree(); */
 
-	Node<T>* createLeaf(T);
 	void addLeaf(T);
+	void print();
 };
 
 #endif
