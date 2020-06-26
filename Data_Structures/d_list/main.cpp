@@ -1,21 +1,19 @@
 #include "List.h"
+#include "Iterator.h"
 #include "List.cpp"
 #include <iostream>
+using namespace std;
 
 int main () {
-    List<double> l1;
-    List<int> l2;
+	List<int> l;
 
-    l1.insert(45.5, 0);
-    l1.insert(15.4, 1);
-    l1.insert(45.8, 2);
+	l.push(5);
+	l.push(6);
+	l.push(7);
+	List<int>::Iterator i = l.begin();
+	i;
+	cout << *i << endl;
+	l.show();
 
-    l2.insert(45.5, 0);
-    l2.insert(15.4, 1);
-    l2.insert(45.8, 2);
-
-    l1.show();
-    l2.show();
-
-    return 0;
+	return 0;
 }

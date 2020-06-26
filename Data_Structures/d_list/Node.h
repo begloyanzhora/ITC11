@@ -3,15 +3,15 @@
 
 template<typename T>
 struct Node {
-    Node* pNext;
-    Node* pPrev;
-    T data;
+	Node* pNext;
+	Node* pPrev;
+	T data;
 
-    Node(T data = T(), Node* pPrev = nullptr, Node* pNext = nullptr) {
-        this->data = data;
-        this->pPrev = pPrev;
-        this->pNext = pNext;
-    }
+	Node(T data, Node* pPrev = nullptr, Node* pNext = nullptr) {
+		this->data = data;
+		this->pPrev = pPrev;
+		this->pNext = pNext;
+	}
 };
 
 #endif
