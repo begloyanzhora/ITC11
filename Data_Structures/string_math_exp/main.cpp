@@ -6,10 +6,10 @@ int getPreority(char);
 int calculate(int, int, char);
 
 int main() {
-	char exp[100] ("7+8*4-1");
+	char* exp = (char*)"7+5*6-4-2+5*3";
 
-	stack<int> numbers;
-	stack<char> opers;
+	std::stack<int> numbers;
+	std::stack<char> opers;
 	int i = 0;
 
 	while (exp[i] != '\0') {
