@@ -5,10 +5,10 @@ void swap (int&, int&);
 
 int main () {
 
-	int arr[6] = {5, 85, 4, 21, -12, 15};
-	insertSort (arr, 6);
+	int arr[7] = {5, 85, 4, 21, -12, 15, 7};
+	insertSort (arr, 7);
 
-	for(int i = 0; i < 6; ++i) {
+	for(int i = 0; i < 7; ++i) {
 
 		std::cout << arr[i] << ' ';
 	}
@@ -27,7 +27,7 @@ void swap (int& a, int& b) {
 void insertSort (int arr[], int length) {
 
 	int j;
-	for (int i = 1; i < 6; ++i) {
+	for (int i = 1; i < length; ++i) {
 
 		j = i;
 		while (arr[j] < arr[j-1] && j > 0) {
