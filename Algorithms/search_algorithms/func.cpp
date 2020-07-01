@@ -141,6 +141,13 @@ int ternarySearch(int arr[], int low, int high, int value) {
 int interpolationSearch(int* arr, int low, int high, int value) {
 	int pos;
 
+	if (arr[high] - arr[low] == 0) {
+		if (value == arr[low]) {
+			return low;
+		}
+		return -1;
+	}
+
 	while (low <= high) {
 		pos = low + ( (value - arr[low]) * (high - low) / (arr[high] - arr[low]) );
 
