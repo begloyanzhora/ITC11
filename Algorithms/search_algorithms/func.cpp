@@ -149,9 +149,9 @@ int interpolationSearch(int* arr, int low, int high, int value) {
 		}
 
 		if (value > arr[pos]) {
-			return binarySearch(arr, pos + 1, high, value);
+			return interpolationSearch(arr, pos + 1, high, value);
 		}
-		return binarySearch(arr, low, pos - 1, value);
+		return interpolationSearch(arr, low, pos - 1, value);
 
 	}
 
