@@ -148,7 +148,7 @@ int interpolationSearch(int* arr, int low, int high, int value) {
 		return -1;
 	}
 
-	while (low <= high) {
+	while (low <= high && value >= arr[low]) {
 		pos = low + ( (value - arr[low]) * (high - low) / (arr[high] - arr[low]) );
 
 		if (value == arr[pos]) {
