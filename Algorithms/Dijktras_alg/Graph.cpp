@@ -1,6 +1,10 @@
 #include "Graph.h"
 #include <iostream>
 #include <map>
+#include <climits>
+
+#define INF INT_MAX
+
 Graph::Graph () {
 
 	Node* s = new Node('S');
@@ -59,27 +63,20 @@ Node* Graph::getVertexNode (char v) {
 	}
 }
 
-void Graph::getShortestPath(char start, char finish) {
+void Graph::getShortestPath(char finish) {
 
 	std::list<Node*> unvisited = vertex;
 	std::list<Node*> visited;
 	std::map<Node*, int> distance;
 	std::map<Node*, Node*> prev;
-	Node* startNode = getVertexNode(start);
 
-	for (auto i = unvisited.begin(); i != unvisited.end(); ++i) {
-		distance[*i] = 10000;
+	auto i = unvisited.begin();
+	distance[*i] = 0;
+	++i;
+
+	for (;i != unvisited.end(); ++i) {
+		distance[*i] = INF;
 	}
-
-
-	for (auto i = (startNode->to).begin(); i != (startNode->to).end(); ++i) {
-
-		distance[*i] = startNode->weight[*i];
-		prev[*i] = startNode;
-	}
-
-	visited.push_back(startNode);
-	unvisited.remove(startNode);
 
 	while (!unvisited.empty()) {
 
@@ -120,9 +117,58 @@ void Graph::getShortestPath(char start, char finish) {
 		}
 	}
 
-	std::cout << "Shortest path to <" << finish << "> will be:" << std::endl;
+	std::cout << "Shortest path to <" << finish << "> will be: " << distance[lastNode] << std::endl;
 
 	std::cout << finish << "<--" ;
+
+	while (prev[lastNode] != nullptr) {
+
+		std::cout << prev[lastNode]->own << "<--";
+		lastNode = prev[lastNode];
+	}
+
+	std::cout << "start" << std::endl;
+}
+
+void Graph::bellmanFord(char finish) {
+
+	std::map<Node*, int> distance;
+	std::map<Node*, Node*> prev;
+	Node* lastNode = getVertexNode(finish);
+
+	auto i = vertex.begin();
+	distance[*i] = 0;
+	++i;
+	for (; i != vertex.end(); ++i) {
+		distance[*i] = INF;
+	}
+
+	for (int k = 0; k < vertex.size() - 1; ++k) {
+		Node* current;
+
+		for (auto i = vertex.begin(); i != vertex.end(); ++i) {
+			current = *i;
+
+			if (distance[current] == INF) {
+				continue;
+			}
+
+			if(!(current->to).empty()) {
+
+				for(auto j = (current->to).begin(); j != (current->to).end(); ++j) {
+
+					if (distance[*j] > distance[current] + current->weight[*j]) {
+						distance[*j] = distance[current] + current->weight[*j];
+						prev[*j] = current;
+					}
+				}
+			}
+		}
+	}
+
+	std::cout << "Shortest path to <" << lastNode->own << "> will be: " << distance[lastNode] << std::endl;
+
+	std::cout << lastNode->own << "<--" ;
 
 	while (prev[lastNode] != nullptr) {
 

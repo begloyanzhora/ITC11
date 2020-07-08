@@ -25,7 +25,8 @@ public:
 	Graph();
 	void addVertex(char, char, int);
 	void printGraph();
-	void getShortestPath(char, char);
+	void getShortestPath(char);
+	void bellmanFord(char);
 	~Graph();
 };
 
