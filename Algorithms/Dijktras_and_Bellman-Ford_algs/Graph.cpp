@@ -142,8 +142,19 @@ void Graph::bellmanFord(char finish) {
 	for (; i != vertex.end(); ++i) {
 		distance[*i] = INF;
 	}
+	int k = 0;
 
-	for (int k = 0; k < vertex.size() - 1; ++k) {
+	bool done = true;
+
+	while (done) {
+		++k;
+
+		if (k > vertex.size()) {
+			std::cout << "In This Graph algorithm won't to work correctly." << std::endl;
+			return;
+		}
+
+		done = false;
 		Node* current;
 
 		for (auto i = vertex.begin(); i != vertex.end(); ++i) {
@@ -158,6 +169,7 @@ void Graph::bellmanFord(char finish) {
 				for(auto j = (current->to).begin(); j != (current->to).end(); ++j) {
 
 					if (distance[*j] > distance[current] + current->weight[*j]) {
+						done = true;
 						distance[*j] = distance[current] + current->weight[*j];
 						prev[*j] = current;
 					}
