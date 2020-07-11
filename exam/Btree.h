@@ -18,7 +18,7 @@ class Btree {
 private:
 	Node<T>* root;
 	Node<T>* createLeaf(T);
-	void addLeafPrivate(T, Node<T>*);
+	Node<T>* addLeafPrivate(T, Node<T>*);
 	void printPrivate(Node<T>*);
 	Node<T>* getNodePrivate(T, Node<T>*);
 	T findMinPrivate(Node<T>*);
@@ -27,8 +27,10 @@ private:
 	void removeNodePrivate(T, Node<T>*);
 	void removeSubTree(Node<T>*);
 	int height(Node<T>*);
-	void rightBalance(Node<T>*);
-	void leftBalance(Node<T>*);
+	Node<T>* rightBalance(Node<T>*);
+	Node<T>* leftBalance(Node<T>*);
+	Node<T>* doubleBalanceLeft(Node<T>*);
+	Node<T>* doubleBalanceRight(Node<T>*);
 
 public:
 	Btree();
