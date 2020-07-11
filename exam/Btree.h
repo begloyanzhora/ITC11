@@ -1,12 +1,12 @@
 #ifndef BTREE__H
 #define BTREE__H
+#include <vector>
 
 template <typename T>
 struct Node {
 	T value;
 	Node* left;
 	Node* right;
-	Node* parent;
 	int height;
 	T& operator* () {
 		return value;
@@ -31,6 +31,8 @@ private:
 	Node<T>* leftBalance(Node<T>*);
 	Node<T>* doubleBalanceLeft(Node<T>*);
 	Node<T>* doubleBalanceRight(Node<T>*);
+	std::vector<Node<T>*> leaves;
+	void initLeaves(Node<T>*);
 
 public:
 	Btree();
@@ -42,6 +44,7 @@ public:
 	Node<T>* getNode(T);
 	T findMin();
 	void removeNode(T);
+	int getMinAbsolDiff();
 };
 
 #endif

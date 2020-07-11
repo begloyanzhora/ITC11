@@ -6,6 +6,10 @@ int max(int a, int b) {
 	return a > b ? a : b;
 }
 
+int modul(int a) {
+	return a >= 0 ? a : 0 - a;
+}
+
 template <typename T>
 Btree<T>::Btree() {
 	root = nullptr;
@@ -22,7 +26,6 @@ Node<T>* Btree<T>::createLeaf(T value) {
 	n->value = value;
 	n->left = nullptr;
 	n->right = nullptr;
-	n->parent = nullptr;
 	n->height = 1;
 
 	return n;
@@ -332,6 +335,46 @@ void Btree<T>::removeSubTree(Node<T>* ptr) {
 		}
 		delete ptr;
 	}
+}
+
+template <typename T>
+void Btree<T>::initLeaves(Node<T>* node) {
+	if (node == nullptr){
+		return;
+	}
+
+	if(node->left == nullptr && node->right == nullptr) {
+		leaves.push_back(node);
+		return;
+	}
+
+	if(node->right != nullptr) {
+		initLeaves(node->right);
+	}
+
+	if(node->left != nullptr) {
+		initLeaves(node->left);
+	}
+
+}
+
+template <typename T>
+int Btree<T>::getMinAbsolDiff() {
+	initLeaves(root);
+	int rootValue = root->value;
+	int leafValue = leaves[0]->value;
+	int length = leaves.size();
+	int min = modul(rootValue - leafValue);
+
+	for (int i = 1; i < length; ++i) {
+		leafValue = leaves[i]->value;
+
+		if (modul(rootValue - leafValue) < min) {
+			min = modul(rootValue - leafValue);
+		}
+	}
+
+	return min;
 }
 
 template <typename T>
