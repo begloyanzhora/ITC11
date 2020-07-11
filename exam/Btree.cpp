@@ -2,9 +2,18 @@
 #include "Btree.h"
 #include <iostream>
 
+int max(int a, int b) {
+	return a > b ? a : b;
+}
+
 template <typename T>
 Btree<T>::Btree() {
 	root = nullptr;
+}
+
+template <typename T>
+int Btree<T>::height(Node<T>* tree) {
+	return tree == nullptr ? 0 : tree->height;
 }
 
 template <typename T>
@@ -14,69 +23,78 @@ Node<T>* Btree<T>::createLeaf(T value) {
 	n->left = nullptr;
 	n->right = nullptr;
 	n->parent = nullptr;
+	n->height = 1;
 
 	return n;
 }
 
 template <typename T>
+void Btree<T>::rightBalance(Node<T>* ptr) {
+
+	if (height(ptr) - height(ptr->parent->left) == 2) {
+		Node<T>* parent = ptr->parent;
+		Node<T>* rt = ptr;
+		Node<T>* left = parent;
+		Node<T>* right = ptr->right;
+
+		rt->left = left;
+		rt->right = right;
+
+		left->parent = rt;
+		right->parent = rt;
+
+		rt->height = max(height(left), height(right)) + 1;
+	}
+
+}
+
+template <typename T>
+void Btree<T>::leftBalance(Node<T>* ptr) {
+
+	if (height(ptr) - height(ptr->parent->right) == 2) {
+		Node<T>* parent = ptr->parent;
+		Node<T>* rt = ptr;
+		Node<T>* right = parent;
+		Node<T>* left = ptr->left;
+
+		rt->left = left;
+		rt->right = right;
+
+		left->parent = rt;
+		right->parent = rt;
+
+		rt->height = max(height(left), height(right)) + 1;
+	}
+
+}
+
+template <typename T>
 void Btree<T>::addLeafPrivate(T value, Node<T>* ptr) {
 	Node<T>* leaf = createLeaf(value);
-
 	if (root == nullptr) {
 		root = leaf;
 
 	} else if (value < ptr->value) {
+		ptr->height++;
 
 		if (ptr->left != nullptr) {
 			addLeafPrivate (value, ptr->left);
 
 		} else {
-
-			if (ptr->parent != nullptr &&  ptr->value < (ptr->parent)->value) {
-				Node<T>* parent = (ptr->parent)->parent;
-				ptr->right = ptr->parent;
-				(ptr->right)->parent = ptr;
-				ptr->parent = parent;
-				if(parent != nullptr) {
-					if (parent->value > ptr->value) {
-						parent->left = ptr;
-					}else {
-						parent->right = ptr;
-					}
-				} else {
-					root = ptr;
-				}
-			}
-
 			ptr->left = leaf;
 			leaf->parent = ptr;
-
+			rightBalance(ptr);
 		}
 	} else if (value > ptr->value) {
+		ptr->height++;
 
 		if (ptr->right != nullptr) {
 			addLeafPrivate (value, ptr->right);
 
 		} else {
-
-			if (ptr->parent != nullptr &&  ptr->value > (ptr->parent)->value) {
-				Node<T>* parent = (ptr->parent)->parent;
-				ptr->left = ptr->parent;
-				(ptr->left)->parent = ptr;
-				ptr->parent = parent;
-				if(parent != nullptr) {
-					if (parent->value > ptr->value) {
-						parent->left = ptr;
-					}else {
-						parent->right = ptr;
-					}
-				} else {
-					root = ptr;
-				}
-			}
-
 			ptr->right = leaf;
 			leaf->parent = ptr;
+			leftBalance(ptr);
 		}
 
 	} else {
@@ -108,6 +126,7 @@ void Btree<T>::printPrivate(Node<T>* ptr) {
 		std::cout << "The tree is empty." << std::endl;
 
 	}
+
 }
 
 template <typename T>
@@ -117,13 +136,12 @@ void Btree<T>::print() {
 
 template <typename T>
 void Btree<T>::levelOrderPrint() {
-	/* If root is not NULL */
+
 	if (NULL != root) {
-		/* Create queue for level elements */
+
 		std::queue<Node<T>*> queue;
 		queue.push(root);
 
-		/* Pop current level elements from queue and push current's left and right */
 		while (!queue.empty()) {
 			Node<T>* node = queue.front();
 			std::cout << node->value << " ";
@@ -140,6 +158,9 @@ void Btree<T>::levelOrderPrint() {
 
 		std::cout << std::endl;
 	}
+
+	Node<T>* parent = root->right->parent;
+	std::cout << height(parent->left) << std::endl;
 }
 
 template <typename T>

@@ -7,6 +7,7 @@ struct Node {
 	Node* left;
 	Node* right;
 	Node* parent;
+	int height;
 	T& operator* () {
 		return value;
 	}
@@ -25,6 +26,9 @@ private:
 	void removeMatch(Node<T>*, Node<T>*, bool);
 	void removeNodePrivate(T, Node<T>*);
 	void removeSubTree(Node<T>*);
+	int height(Node<T>*);
+	void rightBalance(Node<T>*);
+	void leftBalance(Node<T>*);
 
 public:
 	Btree();
