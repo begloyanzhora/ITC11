@@ -20,5 +20,8 @@ def main ():
 	n = int(input())
 	pascalTriangle(n)
 
+	print('Count of locals variables of Pascal triangle function:', end = ' ')
+	print(pascalTriangle.__code__.co_nlocals)
+
 if __name__ == "__main__":
 	main()
