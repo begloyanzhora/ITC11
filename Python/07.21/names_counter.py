@@ -52,12 +52,13 @@ def count_names_in_text (text):
 """ Functon for printing the result """
 def print_names (text, n):
 	names = count_names_in_text (text)
-	keys = list(names.keys())
-	if len(keys) <= n:
-		print (names)
+	names = sorted(names.items(), key=lambda x: x[1], reverse=True)
+	if len(names) <= n:
+		for name in names:
+			print (name[0], ':', name[1])
 	else:
-		for key in keys[:n]:
-			print (key, ':', names[key])
+		for name in names[:n]:
+			print (name[0], ':', name[1])
 
 def main ():
 	print('Input the text.')
