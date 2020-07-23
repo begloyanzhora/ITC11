@@ -111,9 +111,7 @@ def sort_lines(lines_arr):
 	return result
 
 def main ():
-	lines_arr = ['wz3 fdgf dfgd', 'mi2 jog mid', 'avvv5 alps cow',
-             'x5 45 27', 'a1 alps blov', 'a1 alps bloz', 'axe5 455 27',
-             'a5 25 80','a6 25 70','tx5 405 97']
+	lines_arr = ['wz3 34 54', 'mi2 jog mid', 'x5 45 27', 'a1 alps cow', 'a1 alps blow']
 
 	for line in sort_lines(lines_arr):
 		print(line)
