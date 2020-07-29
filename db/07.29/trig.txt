@@ -1,1 +1,0 @@
-create trigger for_delete before delete on persons for each row delete from orders where orders.personID = old.personID;
