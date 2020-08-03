@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="https://img.icons8.com/nolan/64/monitor.png" type="image/x-icon">
         <meta charset="UTF-8">
         <meta name="keywords" content="keywords">
         <meta name="description" content="Description example">
@@ -13,135 +13,185 @@
             h1 {color: red;}
         </style>
         <script src="script.js"></script>
-
-        <base href="https://google.com">
     </head>
 
     <body>
-        <header>
-            <h1>Header h1</h1>
-            <h2>Header h2</h2>
-            <h3>Header h3</h3>
-            <h4>Header h4</h4>
-            <h5>Header h5</h5>
-            <h6>Header h6</h6>
-        </header>
+        <main>
+            <header style="border: 2px solid #ccc;">
+                <h1>Header h1</h1>
+                <h2>Header h2</h2>
+                <h3>Header h3</h3>
+                <h4>Header h4</h4>
+                <h5>Header h5</h5>
+                <h6>Header h6</h6>
+            </header>
 
-        <nav>
-            <ul>
-                <li><a href="tags/tag_base.asp">Base tag</a></li>
-                <li><button><a href="https://google.com">It's button</a></button></li>
-                <li><a href="https://google.com">Link example</a></li>
-            </ul>
-        </nav>
+            <nav style="border: 2px solid #ccc;">
+                <ul>
+                    <li><button><a href="https://google.com">It's button</a></button></li>
+                    <li><a href="https://google.com">Link example</a></li>
+                </ul>
+            </nav>
 
-        <section>
-            <h2>Section 1</h2>
-            <article>
-                <h2>Article 1</h3>
-                <div>
-                    <p>
-                        Lorem ipsum dolor sit amet.
-                        <span>In span teg</span>
-                        Lorem <b>bold text</b>> dolor sit amet consectetur.
-                        <abbr title="Example of abbr">EOA</abbr>
-                    </p>
-                </div>
-            </article>
+            <aside style="float: right; width: 30%; border: 2px solid #ccc;">
+                <h3>Aside tag</h3>
 
-            <article>
-                <h3>Article 2</h3>
-                <address>
-                    <cite>Name</cite> Lorem, ipsum. <br>
-                    Lorem, ipsum. <hr>
-                    Lorem, ipsum. <br>
-                </address>
-            </article>
+                <form action="example.php" method="post">
+                    <fieldset>
+                        <legend>Sign Up</legend>
+                        <label for="login">Login:</label>
+                        <input type="text" name="login" id="login"><br><br>
+                        <label for="psw">Password:</label>
+                        <input type="password" name="psw" id="psw"><br><br>
+                        <label for="city">City:</label>
+                        <select name="psw" id="psw">
+                            <optgroup label="Lori">
+                                <option value="vanadzor">Vanadzor</option>
+                                <option value="stepanavan">Stepanavan</option>
+                            </optgroup>
+
+                            <optgroup label="Tavush">
+                                <option value="dilijan">Dilijan</option>
+                                <option value="ijevan">Ijevan</option>
+                            </optgroup>
+                        </select><br><br>
+                        <label for="about">About:</label>
+                        <textarea name="about" id="about" cols="30" rows="10">Tell us something about yourself...</textarea><br><br>
+                        <button type="submit">Sign Up</button>
+                    </fieldset>
+                </form>
+
+                <audio>
+                    <source src="" type="">
+                </audio>
+
+                <bdo dir="rtl">
+                    Lorem ipsum dolor sit amet.
+                </bdo>
+
+                <blockquote>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit laborum veniam adipisci numquam quia qui minima facilis animi laboriosam quasi?
+                </blockquote>
+
+                <p>Lorem ipsum dolor sit amet <del>consectetur</del>, adipisicing elit. <ins>Nam</ins>, veritatis?</p>
+
+                <dl>
+                    <dt>lorem</dt>
+                    <dd>Lorem, ipsum dolor.</dd>
+                </dl>
+
+                <details>
+                    <summary>Press for more</summary>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur eaque nulla itaque, deserunt minima tempora?</p>
+                </details>
+            </aside>
+
+            <section style="border: 2px solid #ccc;">
+                <h2>Section 1</h2>
+                <article>
+                    <h2>Article 1</h3>
+                    <div>
+                        <p>
+                            Lorem ipsum dolor sit amet.
+                            <span>In span teg</span>
+                            Lorem <b>bold text</b>> dolor sit amet consectetur.
+                            <abbr title="Example of abbr">EOA</abbr>
+                        </p>
+                    </div>
+                </article>
+
+                <article>
+                    <h3>Article 2</h3>
+                    <address>
+                        <cite>Name</cite> Lorem, ipsum. <br>
+                        Lorem, ipsum. <hr>
+                        Lorem, ipsum. <br>
+                    </address>
+
+                    <label for="loading">Loading</label>
+                    <meter id="loading" min="0" max="100" value="70"></meter>
+                </article>
 
 
-            <article>
-                <h3>Article 3 <code>Piece of code</code></h3>
+                <article>
+                    <h3>Article 3 <code>Piece of code</code></h3>
 
-                <h3>Table</h3>
-                <table>
-                    <colgroup>
-                        <col style="background-color:red">
-                        <col span="2" style="background-color:yellow">
-                    </colgroup>
-                    <caption>Table 2*3</caption>
-                    <tr>
-                        <th>1.1</th>
-                        <th>1.2</th>
-                        <th>1.3</th>
-                    </tr>
-                    <tr>
-                        <td>2.1</td>
-                        <td>2.2</td>
-                        <td>2.3</td>
-                    </tr>
-                </table>
-            </article>
+                    <h3>Table</h3>
+                    <table border="1">
+                        <colgroup>
+                            <col style="background-color:red">
+                            <col span="2" style="background-color:yellow">
+                        </colgroup>
+                        <caption>Table 2*3</caption>
+                        <thead>
+                            <tr>
+                                <th>1.1</th>
+                                <th>1.2</th>
+                                <th>1.3</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>2.1</td>
+                                <td>2.2</td>
+                                <td>2.3</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td>2.1</td>
+                                <td>2.2</td>
+                                <td>2.3</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </article>
 
-            <article>
-                <ol>
-                    <li>
-                        <data>Lorem, ipsum dolor.</data>
-                    </li>
-                    <li>
-                        <data>Repellat, itaque? Beatae.</data>
-                    </li>
-                    <li>
-                        <data>Mollitia, molestias nihil!</data>
-                    </li>
-                </ol>
-                <input list="example">
-                <datalist id="example">
-                    <option value="option1">aaa</option>
-                    <option value="option2">bbb</option>
-                    <option value="option3">ccc</option>
-                </datalist>
-            </article>
+                <article>
+                    <ol>
+                        <li>
+                            <data>Lorem, ipsum dolor.</data>
+                        </li>
+                        <li>
+                            <data>Repellat, itaque? Beatae.</data>
+                        </li>
+                        <li>
+                            <data>Mollitia, molestias nihil!</data>
+                        </li>
+                    </ol>
+                    <input list="example">
+                    <datalist id="example">
+                        <option value="option1">aaa</option>
+                        <option value="option2">bbb</option>
+                        <option value="option3">ccc</option>
+                    </datalist>
+                </article>
 
-        </section>
+            </section>
 
+            <footer style="border: 2px solid #ccc;">
+                <h1>It's <dfn>footer</dfn> area</h1>
 
-        <aside>
-            <h3>Aside tag</h3>
-            <audio>
-                <source src="" type="">
-            </audio>
+                <dialog open>This is dialog</dialog>
 
-            <bdo dir="rtl">
-                Lorem ipsum dolor sit amet.
-            </bdo>
+                <p>Lorem ipsum dolor <em>sit</em> amet <mark>consectetur</mark> <i>adipisicing</i> elit. Eum <kbd>keyboard</kbd> quaerat odio?</p>
+                <pre>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Exercitationem!</pre>
+                <p>
+                    <q>Lorem ipsum dolor</q> sit amet <s>Cupiditate deserunt</s> ad minima? <samp>Similique,</samp> asperiores
+                    <small>laudantium quaerat quasi</small> <strong>cumque unde aliquid possimus</strong> maxime a <sub>nostrum</sub>
+                    <sup>distinctio illum</sup>
+                    saepe accusantium autem Lorem ipsum dolor sit amet.
+                    impedit quam vitae veritatis incidunt <u>voluptatibus</u> beatae? Odit iure nisi tempore rem recusandae dicta sed nihil cupiditate,
+                    doloremque provident obcaecati fugiat!
+                    <var>x</var>
+                </p>
+                <figure>
+                    <img src="codeacademy.png" alt="image" width="1500px">
+                    <figcaption>Image from Homework</figcaption>
+                </figure>
 
-            <blockquote>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit laborum veniam adipisci numquam quia qui minima facilis animi laboriosam quasi?
-            </blockquote>
-
-            <p>Lorem ipsum dolor sit amet <del>consectetur</del>, adipisicing elit. <ins>Nam</ins>, veritatis?</p>
-
-            <dl>
-                <dt>lorem</dt>
-                <dd>Lorem, ipsum dolor.</dd>
-            </dl>
-
-            <details>
-                <summary>Press for more</summary>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur eaque nulla itaque, deserunt minima tempora?</p>
-            </details>
-        </aside>
-
-        <footer>
-            <h1>It's <dfn>footer</dfn> area</h1>
-
-            <dialog open>This is dialog</dialog>
-
-            <p>Lorem ipsum dolor <em>sit</em> amet consectetur adipisicing elit. Eum doloribus quaerat odio?</p>
-
-            <img src="image.img" alt="image">
-
-            <iframe src="https://google.com" frameborder="0">Google</iframe>
-        </footer>
+                <iframe src="https://www.w3schools.com"></iframe>
+            </footer>
+        </main>
     </body>
 </html>
