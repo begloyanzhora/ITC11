@@ -1,0 +1,49 @@
+.row {
+    display: flex;
+    background-color: #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.row.header {
+    justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: blueviolet;
+}
+
+.square {
+    width: 150px;
+    height: 150px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+.square.red{
+    background-color: rgb(255,0, 0);
+}
+.square.green{
+    background-color: rgb(0, 255, 0);
+}
+.square.blue{
+    background-color: rgb(0, 0, 255);
+}
+
+.row.first {
+    height: 250px;
+    justify-content: center;
+    align-items: center;
+}
+
+.row.second {
+    height: 250px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.row.tirth {
+    height: 250px;
+    justify-content: space-around;
+    align-items: center;
+}
