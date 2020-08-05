@@ -1,8 +1,16 @@
+body{
+    color:black;
+    box-sizing: border-box;
+    white-space: normal;
+    word-break: break-all;
+}
 .row {
     display: flex;
     background-color: #ccc;
     border-radius: 5px;
     margin-bottom: 20px;
+    flex-wrap: wrap;
+    align-content: center;
 }
 
 .row.header {
@@ -10,7 +18,7 @@
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 800;
     letter-spacing: 2px;
-    color: blueviolet;
+    color: rgb(96, 60, 129);
 }
 
 .square {
@@ -22,12 +30,30 @@
 
 .square.red{
     background-color: rgb(255,0, 0);
+    order: 3;
+    transform: scaleY(1.2);
 }
 .square.green{
     background-color: rgb(0, 255, 0);
+    border-radius: 10px 20px;
+    order: 2;
+    z-index: 15;
+
+    /*
+    animation: name duration timing-function delay iteration-count direction fill-mode;
+    */
+    animation: myanim 1s ease-in 2s infinite alternate forwards;
+
+    cursor: wait;
+}
+@keyframes myanim{
+    from {transform: rotate(0deg);}
+    to {transform: rotate(360deg);}
 }
 .square.blue{
     background-color: rgb(0, 0, 255);
+    order: 1;
+    transform: scale(1.5);
 }
 
 .row.first {
@@ -46,4 +72,177 @@
     height: 250px;
     justify-content: space-around;
     align-items: center;
+}
+
+.row.main {
+    color: chartreuse;
+    all: initial;
+    hyphens: auto;
+}
+
+p[attr="to-get"] {
+    /* background: bg-color bg-image position/bg-size bg-repeat bg-origin bg-clip bg-attachment initial|inherit; */
+    background: #ccc url(https://photogora.ru/img/product/big/3427/1473674700772433427.jpg) center no-repeat border-box fixed;
+    color: crimson;
+    border: 10px solid transparent;
+    border-image: url(https://www.w3schools.com/cssref/border.png) 30% round;
+    column-count: 3;
+    column-fill: balance;
+    column-gap: 100px;
+    column-rule: 8px double rgb(96, 60, 129);
+}
+
+.mirror-view {
+    padding: 10px;
+    background-color: rgb(37, 41, 34);
+    height: 60px;
+    width: 60px;
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
+}
+
+#parag {
+    border: 5px solid red;
+    border-radius: 15px;
+    -webkit-box-decoration-break: slice;
+    -o-box-decoration-break: slice;
+    box-decoration-break: slice;
+    box-shadow: 5px 10px #888888;
+    line-height: 40px;
+}
+
+.input{
+    overflow: hidden;
+}
+
+[type="text"] {
+    caret-color: rgb(0, 255, 0);
+    padding: 5px;
+    float: right;
+    clear: both;
+    max-width: 150px;
+    min-width: 10px;
+    max-height: 20px;
+    min-height: 5px;
+    outline: 2px dashed blue;
+}
+.pic{
+    position: relative;
+}
+
+.pic img {
+    position: absolute;
+    clip: rect(0 400px 150px 0);
+    mix-blend-mode: darken;
+}
+
+.pic img:last-child{
+    clip-path: circle(50%);
+}
+
+.row.cols {
+    display: block;
+    column-width: 250px;
+}
+
+.row.cols >h2 {
+    column-span: all;
+}
+.pic img+p {
+    direction: rtl;
+    unicode-bidi: bidi-override;
+}
+h3~img{
+    left: 200px;
+    top: -25px;
+}
+[border] {
+    empty-cells: hide;
+}
+[src*="google"] {
+    filter: grayscale(100%);
+}
+
+.row.for-flex {
+    justify-content: space-around;
+}
+[title~=flex] {
+    background-color: red;
+    height: 20px;
+    flex-basis: 60px;
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+.myfont {
+    font-family: Arial;
+    font-size: 18px;
+    font-style: italic;
+    font-variant: small-caps;
+    font-variant-caps: all-small-caps;
+    font-weight: bold;
+}
+
+.grid-container.first{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-gap: 10px;
+    background-color: #2196F3;
+    padding: 10px;
+    grid-auto-flow: row;
+    grid-gap: 25px;
+}
+
+.grid-container.first > div {
+    background-color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    padding: 20px 0;
+    font-size: 30px;
+}
+
+.grid-container.second{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-gap: 10px;
+    background-color: #2196F3;
+    padding: 10px;
+    grid-auto-flow: column;
+    grid-auto-rows: 300px;
+}
+
+.grid-container.second > div {
+    background-color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    padding: 20px 0;
+    font-size: 30px;
+}
+
+.grid-container.first .item1 {
+    grid-area: 2 / 1 / span 2 / span 3;
+}
+
+[select^="_forc"] {
+    list-style: none;
+}
+
+@media screen and (max-width: 992px) {
+    img {
+        display: none;
+    }
+}
+
+[alt$="test"] {
+    width: 200px;
+    height: 400px;
+    object-fit: none;
+    object-position: 5px 10%;
+    border: 5px solid red;
+    opacity: 0.5;
+}
+#text {
+    transition: background-color .5s;
+    user-select: none;
+    writing-mode: vertical-rl;
+}
+#text:hover{
+    background-color: red;
 }
