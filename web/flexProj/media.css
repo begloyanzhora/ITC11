@@ -1,0 +1,45 @@
+/*-----for tablets-----------------*/
+@media screen and (max-width: 1024px) {
+    .aside-wrap {
+        flex-basis: 0;
+        flex-grow: 1;
+        margin-right: .5rem;
+    }
+    .section-wrap {
+        flex-basis: 0;
+        flex-grow: 2;
+        margin-left: .5rem;
+    }
+    #welcome{
+        padding: 1rem 0;
+    }
+}
+/*----for mobiles---------*/
+@media screen and (max-width: 834px) {
+    nav {
+        flex-direction: column;
+    }
+    nav a {
+        text-align: center;
+        font-size: 1rem;
+        padding: .5rem 1.5rem;
+    }
+    nav a:last-child{
+        margin-left: 0;
+    }
+    #welcome {
+        display: none;
+    }
+    #main {
+        flex-basis: 75%;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding: 0;
+    }
+    aside, section {
+        flex-basis: 0;
+    }
+    aside {
+        margin-bottom: 2rem;
+    }
+}
