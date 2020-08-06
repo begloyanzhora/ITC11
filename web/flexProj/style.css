@@ -1,37 +1,26 @@
-@font-face {
-    font-family: 'Open Sans';
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-    src: local('Open Sans Regular'), local('OpenSans-Regular'), url(https://fonts.gstatic.com/s/opensans/v17/mem8YaGs126MiZpBA-UFVZ0b.woff2) format('woff2');
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-  }
-/* --reset styles-- */
+/* ------------------------------------reset styles---------------------------- */
 *{padding:0; margin: 0;box-sizing: border-box;list-style: none;}
 html{font-size: 16px;}
-/* --main styles-- */
+/* ---------------------------------required fonts-------------------------- -- */
+@font-face {
+    font-family: 'Gemelli';
+    src: url(fonts/Gemelli.ttf);
+}
+@font-face {
+    font-family: 'Aylogri';
+    src: url(fonts/Aylogri.ttf);
+}
+/* ----------------------------------main styles------------------------------ */
 .flex-box {
     display: flex;
     flex-direction: column;
     height: 100vh;
 }
-
+/* --------------------------------------header----------------------------------------- */
 header {
     flex-grow: 0;
-    background-color:red;
+    background-color: rgba(173, 216, 230, 0.7);
 }
-#main {
-    flex-basis: 68%;
-    background-color: green;
-    overflow-y: scroll;
-}
-footer {
-    flex-grow: 0;
-    flex-basis: 10%;
-    background-color: blue;
-}
-
-/* --header-- */
 #welcome {
     background-image: url(https://cdn.pixabay.com/photo/2016/03/06/17/39/banner-1240822_960_720.jpg);
     padding: 3rem 0;
@@ -40,39 +29,69 @@ footer {
     text-align: center;
     color:#fff;
     font-size: 3rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-family: 'Open Sans', sans-serif;
+    letter-spacing: .5rem;
+    font-family: 'Aylogri', sans-serif;
     opacity: .65;
 }
-/* --navigation menu-- */
+/* -----------------------------------navigation menu--------------------------------------- */
 nav {
-    background-color: lightblue;
     display: flex;
 }
 nav a{
     padding: 1rem 1.5rem;
     transition: background-color .5s;
     text-decoration: none;
-    font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 1.5rem;
     letter-spacing: 2px;
+    color: #02ad9c;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: 'Gemelli';
+}
+nav a:last-child{
+    margin-left: auto;
 }
 nav a:hover{
-    background-color: darkblue;
-    color: darkgray;
+    background-color: #02ad9c;
+    color: white;
     transition: background-color .5s;
+}
+/*---------------------------------------main---------------------------------------------------*/
+#main {
+    flex-basis: 80%;
+    background-color: rgba(215, 245, 238, 0.8);
+    overflow-y: auto;
+    padding: 2rem 0;
+    display: flex;
+    justify-content: space-around;
+}
+.aside-wrap {
+    flex-basis: 20%;
+}
+aside {
+    padding: 2rem;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: .5rem;
+    margin-bottom: 2rem;
+}
+.section-wrap {
+    flex-basis: 50%;
+}
+section {
+    padding: 2rem;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: .5rem;
+    margin-bottom: 2rem;
+}
+/*------------------------------------------footer------------------------------------------*/
+footer {
+    flex-basis: 7%;
+    background-color: rgb(173, 216, 230);
 }
 @media screen and (max-width: 1200px) {
     
 }
 @media screen and (max-width: 720px) {
-    #welcome {
-        padding: 1rem 0;
-    }
-    #welcome h1 {
-        font-size: 2rem;
-    }
     nav {
         flex-direction: column;
     }
@@ -81,10 +100,22 @@ nav a:hover{
         font-size: 1rem;
         padding: .5rem 1.5rem;
     }
+    nav a:last-child{
+        margin-left: 0;
+    }
     #welcome {
         display: none;
     }
     #main {
-        flex-basis: 73%;
+        flex-basis: 75%;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding: 0;
+    }
+    aside, section {
+        flex-basis: 0;
+    }
+    aside {
+        margin-bottom: 2rem;
     }
 }
