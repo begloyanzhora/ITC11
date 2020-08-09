@@ -1,27 +1,21 @@
-/* '/' */
 const div = exp => {
     const numbersStrArr = exp.split('/');
     const numbers = numbersStrArr.map(elem => +elem);
 
     return numbers.reduce((res, current) => res /= current);
 }
-
-/* '/ *' */
 const divMul = exp => {
     const numbersStrArr = exp.split('*');
     const numbers = numbersStrArr.map(elem => div(elem));
 
     return numbers.reduce((res, current) => res *= current);
 }
- /* '/ * -' */
 const divMulSub = exp => {
     const numbersStrArr = exp.split('-');
     const numbers = numbersStrArr.map(elem => divMul(elem));
 
     return numbers.reduce((res, current) => res -= current);
 }
-
- /* "/, *,-, +" */
 const calc = exp => {
     const numbersStrArr = exp.split('+');
     const numbers = numbersStrArr.map(elem => divMulSub(elem));
