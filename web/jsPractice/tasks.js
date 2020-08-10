@@ -119,3 +119,125 @@ const calcDivMul = () => {
     alert('a * b = ' + a * b);
     alert('a / b = ' + a / b);
 }
+
+    /* TASK 11 */
+const fromCelToFaren = tem => tem * 9 / 5 + 32;
+const fromFarenToCel = tem => (tem - 32) * 5 / 9;
+
+    /* TASK 12 */
+const getURL = () => window.location.href;
+
+    /* TASK 13 */
+const createVar = () => {
+    varName = prompt('Ente variable name', '');
+    window[varName] = '';
+}
+
+    /* TASK 14 */
+const getExtension = filename => filename.split('.').pop();
+
+    /* TASK 15 */
+const getDiff13 = num => num > 13 ? 2 * (num - 13) :13 - num;
+
+    /* TASK 16 */
+const checkAndGetSum = (a, b) => a === b ? (a + b) * 3 : a + b;
+
+    /* TASK 17 */
+const checkDiff19 = num => num > 19 ? Math.abs(num - 19) * 3 : Math.abs(num - 19);
+
+    /* TASK 18 */
+const checkTwoNum = (a, b) => {
+    return a === 50 || b === 50 || a + b === 50;
+}
+
+    /* TASK 19 */
+const checkWithin = num => Math.abs(num - 100) <= 20 || Math.abs(num - 400) <= 20;
+
+    /* TASK 20 */
+const checkIsPosAndNeg = (a, b) => (a > 0 && b < 0) || (a < 0 && b > 0);
+
+    /* TASK 21 */
+const addPy = str => {
+    if (str.startsWith('Py')) {
+        return str;
+    }
+
+    return 'Py' + str;
+}
+
+    /* TASK 22 */
+const removeChar = (str, pos) => str.slice(0, pos) + str.slice(pos + 1);
+
+    /* TASK 23 */
+const changePos = str => str.charAt(str.length - 1) + str.slice(1, -1) + str.charAt(0);
+
+    /* TASK 24 */
+const addFirstChar = str => str.charAt(0) + str + str.charAt(0);
+
+    /* TASK 25 */
+const checkMul = num => num % 3 === 0 || num % 7 === 0;
+
+    /* TASK 26 */
+const addLastChars = str => str.slice(-3) + str + str.slice(-3);
+
+    /* TASK 27 */
+const isStartsWithJava = str => str.startsWith('Java');
+
+    /* TASK 28 */
+const isInRange = (a, b) => (a >= 50 && a <= 99) || (b >= 50 && b <= 99);
+
+    /* TASK 29 */
+const isInRangeThree = (a, b, c) => (a >= 50 && a <= 99) || (b >= 50 && b <= 99) || (c >= 50 && c <= 99);
+
+    /* TASK 30 */
+const containsScript = str => {
+    if (str.indexOf('Script') === 4) {
+        return str.slice(0, 4) + str.slice(10);
+    }
+
+    return str;
+}
+
+    /* TASK 31 */
+const getMax = (a, b, c) => {
+    let max = a;
+    if (b > max) {
+        max = b;
+    }
+    if (c > max) {
+        max = c;
+    }
+    return max;
+}
+
+    /* TASK 32 */
+const getNearest = (a, b) => Math.abs(a - 100) < Math.abs(b - 100) ? a : b;
+
+    /* TASK 33 */
+const checkRange = (a, b) => ((a => 40 && a <=60) && (b => 40 && b <=60)) || ((a => 70 && a <=100) && (b => 70 && b <=100));
+
+    /* TASK 34 */
+const getMaxCheckRange = (a, b) => {
+    if (a < 40 || b < 40 || a > 60 || b >60) {
+        return;
+    }
+
+    return a > b ? a : b;
+}
+
+    /* TASK 35 */
+const checkPos = (str, char) => str.indexOf(char) >= 2 && str.indexOf(char) <= 4;
+
+    /* TASK 36 */
+const checkLastDig = (a, b, c) => (a % 10 === b % 10) && (b % 10 === c % 10);
+
+    /* TASK 37 */
+const first3Lower = str => {
+    if (str.length < 3) {
+        return str.toUpperCase();
+    }
+
+    return str.slice(0, 3).toLowerCase();
+}
+
+    /* 38. Write a JavaScript program to check the total marks of a student in various examinations. The student will get A+ grade if the total marks are in the range 89..100 inclusive, if the examination is "Final-exam." the student will get A+ grade and total marks must be greater than or equal to 90. Return true if the student get A+ grade or false otherwise. */
