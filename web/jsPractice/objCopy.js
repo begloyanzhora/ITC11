@@ -63,12 +63,12 @@ worker.slow = cachingDecorator(worker.slow);
 console.log( worker.slow(2) ); // doesn't work beacause of losing this
 
 /* example of losing this context */
-let user = {
+let user4 = {
     firstName: "Some name",
     sayHi() {
       console.log(`Hello, ${this.firstName}!`);
     }
 };
-setTimeout(user.sayHi, 1000); // this = undefined
-let sayHi = user.sayHi.bind(user);
-setTimeout(sayHi, 1000); //works correctly
+setTimeout(user4.sayHi, 1000); // this = undefined
+let sayHi1 = user4.sayHi.bind(user4);
+setTimeout(sayHi1, 1000); //works correctly
