@@ -72,3 +72,56 @@ let user4 = {
 setTimeout(user4.sayHi, 1000); // this = undefined
 let sayHi1 = user4.sayHi.bind(user4);
 setTimeout(sayHi1, 1000); //works correctly
+
+/* Map Set WeakMap WeakSet */
+let map = new Map();
+map.set('name', 'Armen');
+map.set(true, 'yes').set('age', 29);
+
+console.log(map.get(true));
+console.log(map.has('name'));
+console.log(map.size);
+for (let entry of map) {
+    console.log(entry);
+}
+map.forEach((value, key) => console.log(`${key} : ${value}`));
+
+let obj = {
+    "test": "testvalue",
+    "key": 'hello'
+};
+
+let mapFromObj = new Map(Object.entries(obj));
+mapFromObj.forEach((value, key) => console.log(`${key} : ${value}`));
+
+let arr = [['key1', 1], ['key2', 2], ['key2', 2]];
+
+let objFromArr = Object.fromEntries(arr);
+
+let set = new Set();
+set.add(2).add(3).add(3);
+console.log(set);
+for(let value of set.values()) {
+    console.log(value);
+}
+
+let john = {name: 'john'};
+let weakMap = new WeakMap();;
+weakMap.set(john, 'ok');
+john = null;
+console.log(weakMap.get(john));
+
+/* Symnols */
+let person = {
+    name: 'Person'
+};
+
+let id = Symbol('id');
+person[id] = 1;
+console.log(person[id]);
+console.log(person);
+
+let globid = Symbol.for("globid");
+let lidAgain = Symbol.for("globid");
+
+console.log(globid === lidAgain);
