@@ -11,7 +11,7 @@
         {"id": "9d25bfe2-59d1-498c-8293-072b0d148684", "name": "Mariam", "surname": "Poghosyan", "age": 32, "job": "doctor"},
         {"id": "faddc483-fd54-457e-8121-a8fab5e6e970", "name": "Hayk", "surname": "Dallaqyan",  "age": 44, "job": "doctor"},
         {"id": "bb546d56-218c-467a-b827-c7c2b89b6f66", "name": "Arman", "surname": "Malkhasyan",  "age": 26, "job": "police"},
-        {"id": "bb546d56-218c-467a-b827-c7c2b89b6f66", "name": "Arman", "surname": "Khachatryan",  "age": 24, "job": ""},
+        {"id": "bb546d56-218c-467a-b827-c7c2b89b6f60", "name": "Arman", "surname": "Khachatryan",  "age": 24, "job": ""},
         {"id": "697e87f3-cd97-49d6-b837-2498a03b8d27", "name": "Davit", "surname": "Voskanyan",  "age": 22, "job": "police"},
         {"id": "664041f9-a9f3-48a3-bc5f-d0637dd374c6", "name": "Armine", "surname": "Margaryan",  "age": 17, "job": ""},
         {"id": "af7bf17a-d1fa-4870-b863-6b43c9d94886", "name": "Karine",  "surname": "Abelyan", "age": 26, "job": "teacher"}
