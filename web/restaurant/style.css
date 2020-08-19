@@ -779,3 +779,32 @@ nav {
     font-style: italic;
     font-size: 0.8125rem;
 }
+/* ======================CONTACTS====================== */
+#contact__content {
+    display: flex;
+    margin-top: 3rem;
+}
+.contact__info {
+    flex-grow: 1;
+    padding: 0 1rem;
+}
+.contact__form {
+    flex-grow: 2;
+    padding: 0 1rem;
+}
+.contact__info__main>div{
+    margin-top: 2.5rem;
+}
+.contact__info__main>div:first-child{
+    margin-top: 0;
+}
+.contact__info__main h4 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+    font-family: "Poppins", sans-serif;
+}
+.contact__info__main p {
+    font-size: .875rem;
+    color: #bab3a6;
+}
