@@ -14,7 +14,50 @@ const getAllUsers = async (req, res) => {
   }
 }
 
-const createUser = async (req, res) => {
+const getUserById = async (req, res) => {
+  try {
+    const user = await Users.findOne({
+      include: [ {model: Cities, attributes: ['name'] }, {model: Offices, attributes: ['name'] }],
+      attributes: {exclude: ['cityId', 'officeId']},
+      where: {
+        id: req.params.id
+      }
+    });
+
+    if(!user) {
+      res.status(404);
+      res.send('Not Found');
+    }
+
+    res.send(user);
+
+  } catch (error) {
+    res.status(500);
+    res.send('Internal Error' + error);
+  }
+}
+
+const getAllCities = async (req, res) => {
+  try {
+    const cities = await Cities.findAll();
+    res.send(cities);
+  } catch (error) {
+    res.status(500);
+    res.send('Internal Error' + error);
+  }
+}
+
+const getAllOffices = async (req, res) => {
+  try {
+    const offices = await Offices.findAll();
+    res.send(offices);
+  } catch (error) {
+    res.status(500);
+    res.send('Internal Error' + error);
+  }
+}
+
+const addUser = async (req, res) => {
   try {
     const { name, surname, age, job, url, city: cityName, office: officeName } = req.body;
 
@@ -33,8 +76,8 @@ const createUser = async (req, res) => {
     })
 
     if(!cityId || !officeId) {
-      res.status(400);
-      res.send('Not Found');
+      res.status(404);
+      res.send("Can't find City or office.");
     }
 
     const newUser = await Users.create({
@@ -48,7 +91,46 @@ const createUser = async (req, res) => {
   }
 }
 
+const addCity = async (req, res) => {
+  try {
+    const { name, isCapital, population } = req.body;
+
+    if(!name) {
+      res.status(400);
+      res.send('Invalid Name');
+    }
+    const newCity = await Cities.create({ name, isCapital, population });
+    res.send(newCity);
+
+  } catch (error) {
+    res.status(500);
+    res.send('Internal Error' + error);
+  }
+}
+
+const addOffice = async (req, res) => {
+  try {
+    const { name } = req.body;
+
+    if(!name) {
+      res.status(400);
+      res.send('Invalid Name');
+    }
+    const newOffice = await Offices.create({ name });
+    res.send(newOffice);
+
+  } catch (error) {
+    res.status(500);
+    res.send('Internal Error' + error);
+  }
+}
+
 module.exports = {
   getAllUsers,
-  createUser
+  addUser,
+  addCity,
+  addOffice,
+  getUserById,
+  getAllOffices,
+  getAllCities
 }

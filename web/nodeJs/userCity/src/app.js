@@ -1,5 +1,5 @@
 const { Users, Cities, Offices } = require('./models');
-const { getAllUsers, createUser } = require('./controllers');
+const { getAllUsers, getUserById, getAllCities, getAllOffices, addUser, addCity, addOffice } = require('./controllers');
 const { port } = require('./configs');
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -8,7 +8,12 @@ const app = express();
 app.use(bodyParser.json());
 
 app.get('/users', getAllUsers);
-app.post('/users', createUser);
+app.get('/users/:id', getUserById);
+app.get('/cities', getAllCities);
+app.get('/offices', getAllOffices);
+app.post('/users', addUser);
+app.post('/cities', addCity);
+app.post('/offices', addOffice);
 
 const initDB = async () => {
   try {
