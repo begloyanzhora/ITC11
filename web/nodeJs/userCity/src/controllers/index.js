@@ -1,10 +1,10 @@
-const { Users, Cities } = require('../models');
+const { Users, Cities, Offices } = require('../models');
 
 const getAllUsers = async (req, res) => {
   try {
     const users = await Users.findAll({
-      include: [{ model: Cities, as: 'city', attributes: ['name'] }],
-      attributes: {exclude: ['cityId']}
+      include: [ {model: Cities, attributes: ['name'] }, {model: Offices, attributes: ['name'] }],
+      attributes: {exclude: ['cityId', 'officeId']}
     });
     res.send(users);
 
@@ -16,7 +16,7 @@ const getAllUsers = async (req, res) => {
 
 const createUser = async (req, res) => {
   try {
-    const { name, surname, age, job, url, city: cityName } = req.body;
+    const { name, surname, age, job, url, city: cityName, office: officeName } = req.body;
 
     const cityId = await Cities.findOne({
       where: {
@@ -25,13 +25,20 @@ const createUser = async (req, res) => {
       attributes: ['id']
     })
 
-    if(!cityId) {
+    const officeId = await Offices.findOne({
+      where: {
+        name: officeName
+      },
+      attributes: ['id']
+    })
+
+    if(!cityId || !officeId) {
       res.status(400);
-      res.send('No Such City');
+      res.send('Not Found');
     }
 
     const newUser = await Users.create({
-      name, surname, age, job, url, cityId: cityId.dataValues.id
+      name, surname, age, job, url, cityId: cityId.dataValues.id, officeId: officeId.dataValues.id
     })
     res.send(newUser);
 

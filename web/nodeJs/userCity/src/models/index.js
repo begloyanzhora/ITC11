@@ -43,12 +43,34 @@ const Cities = db.define('cities', {
   name: {
     type: DataTypes.STRING,
     allowNull: false
+  },
+  isCapital: {
+    type: DataTypes.BOOLEAN,
+    allowNull: false
+  },
+  population: {
+    type: DataTypes.INTEGER,
+    allowNull: false
+  }
+}, {});
+
+const Offices = db.define('offices', {
+  id: {
+    type: DataTypes.INTEGER,
+    primaryKey: true,
+    autoIncrement: true
+  },
+  name: {
+    type: DataTypes.STRING,
+    allowNull: false
   }
 }, {});
 
 Users.belongsTo(Cities, {foreignKey: 'cityId'});
+Users.belongsTo(Offices, {foreignKey: 'officeId'});
 
 module.exports = {
-  Users: Users,
-  Cities: Cities
+  Users,
+  Cities,
+  Offices
 };

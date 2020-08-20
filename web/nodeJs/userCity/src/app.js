@@ -1,6 +1,6 @@
-const { Users, Cities } = require('./models');
-const { getAllUsers,  createUser } = require('./controllers');
-const  { port } = require('./configs');
+const { Users, Cities, Offices } = require('./models');
+const { getAllUsers, createUser } = require('./controllers');
+const { port } = require('./configs');
 const express = require('express');
 const bodyParser = require('body-parser');
 
@@ -12,6 +12,7 @@ app.post('/users', createUser);
 
 const initDB = async () => {
   try {
+    await Offices.sync();
     await Cities.sync();
     await Users.sync();
     console.log('Connection has been established successfull');
