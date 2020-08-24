@@ -1,17 +1,19 @@
-const { Users, Cities, Offices } = require('./models');
-const { getAllUsers, getUserById, getAllCities, getAllOffices, addUser, addCity, addOffice } = require('./controllers');
 const { port } = require('./configs');
+const { Users, Cities, Offices } = require('./models');
+const { getAllUsers, getUserById, getAllCities, getAllOffices, signUp, signIn, addCity, addOffice } = require('./controllers');
+const { auth, checkBody } = require('./services');
 const express = require('express');
 const bodyParser = require('body-parser');
 
 const app = express();
-app.use(bodyParser.json());
+app.use(bodyParser.json(), checkBody);
 
-app.get('/users', getAllUsers);
+app.post('/signup', signUp);
+app.post('/signin', signIn);
+app.get('/users', auth, getAllUsers);
 app.get('/users/:id', getUserById);
 app.get('/cities', getAllCities);
 app.get('/offices', getAllOffices);
-app.post('/users', addUser);
 app.post('/cities', addCity);
 app.post('/offices', addOffice);
 

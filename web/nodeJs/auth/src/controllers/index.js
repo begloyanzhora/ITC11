@@ -1,4 +1,7 @@
 const { Users, Cities, Offices } = require('../models');
+const { saltRounds, secretKey } = require('../configs');
+const { hash, compare } = require('bcrypt');
+const { encode } = require('jwt-simple');
 
 const getAllUsers = async (req, res) => {
   try {
@@ -57,9 +60,9 @@ const getAllOffices = async (req, res) => {
   }
 }
 
-const addUser = async (req, res) => {
+const signUp = async (req, res) => {
   try {
-    const { name, surname, age, job, url, city: cityName, office: officeName } = req.body;
+    const { name, surname, age, job, url, city: cityName, office: officeName, email, password } = req.body;
 
     const cityId = await Cities.findOne({
       where: {
@@ -80,14 +83,50 @@ const addUser = async (req, res) => {
       res.send("Can't find City or office.");
     }
 
-    const newUser = await Users.create({
-      name, surname, age, job, url, cityId: cityId.dataValues.id, officeId: officeId.dataValues.id
+    hash(password, saltRounds, async (err, psw) => {
+      const newUser = await Users.create({
+        name,
+        surname,
+        age,
+        job,
+        url,
+        email,
+        password: psw,
+        cityId: cityId.dataValues.id,
+        officeId: officeId.dataValues.id
+      })
+      res.send(newUser);
     })
-    res.send(newUser);
 
   } catch (error) {
     res.status(500);
     res.send('Internal Error' + error);
+  }
+}
+
+const signIn = async (req, res) => {
+  try {
+    const { email, password } = req.body;
+    const user = await Users.findOne({
+      where: {email: email}
+    })
+
+    compare(password, user.dataValues.password, (err, result) => {
+      if(result) {
+        const payload = {
+          id: user.dataValues.id
+        };
+        const token = encode(payload, secretKey);
+        res.send(token);
+
+      } else {
+        res.status(401);
+        res.send('Unauthorized');
+      }
+    });
+  } catch (error) {
+    res.status(404);
+    res.send('Undefined user');
   }
 }
 
@@ -127,7 +166,8 @@ const addOffice = async (req, res) => {
 
 module.exports = {
   getAllUsers,
-  addUser,
+  signUp,
+  signIn,
   addCity,
   addOffice,
   getUserById,
