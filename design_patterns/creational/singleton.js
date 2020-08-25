@@ -1,23 +1,23 @@
 class ChangeLog {
-    static instance = null;
-    static type = null;
-    constructor(type){
-        this._type = type;
-    }
-
     static getInstance() {
-        if(!instance) {
-            instance = new ChangeLog(type);
-            return instance;
+        if(ChangeLog.instance) {
+            return ChangeLog.instance
+        } else {
+            ChangeLog.instance = this;
+            return this;
         }
     }
 
-    set type(type) {
-        this._type = type;
-        this.instance = null;
+    static warning() {
+        return 'Warning'
+    }
+    static error() {
+        return 'error'
+    }
+    static info() {
+        return 'info'
     }
 }
 
-const a = new ChangeLog('error');
-const b = new ChangeLog('warning');
-console.log(a.getInstance == b.getInstance);
+const a = ChangeLog.getInstance();
+console.log(a.info())
