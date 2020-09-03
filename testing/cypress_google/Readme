@@ -1,0 +1,3 @@
+Steps to run test:
+1. in project directory - npm test
+2. in opened window choose the test which you want to run
