@@ -1,0 +1,93 @@
+p:empty{
+    width: 20px;
+    height: 12px;
+    border: 1px dotted black;
+    margin-left: 60px;
+}
+p:empty::before {
+    content: "This empty paragraph";
+}
+input {
+    outline: none;
+}
+form input:first-child{
+    transform: scale(1.5);
+}
+input:checked::after {
+    content: 'checked';
+    margin-left: 15px;
+}
+input:disabled {
+    border: 2px solid red;
+}
+input:enabled {
+    border: 2px solid green;
+}
+p:nth-child(4)::first-letter {
+    background-color: red;
+}
+p:nth-child(4)::first-line {
+    font-weight: 800;
+}
+p:nth-of-type(1) {
+    background-color: red;
+}
+input:in-range {
+    border-color: chartreuse;
+}
+input:focus {
+    padding: 5px;
+}
+input:invalid {
+    border: 3px solid #ff0000;
+}
+p:lang(it) {
+    background: yellow;
+}
+:not(p) {
+    text-decoration: none;
+}
+a:only-child{
+    font-size: 26px;
+}
+a:active{
+    border: 1px solid black;
+}
+a:hover {
+    background-color: green;
+}
+a:visited {
+    color: hotpink;
+}
+input:required {
+    background-color: yellow;
+}
+input:optional {
+    background-color: peachpuff;
+}
+input:out-of-range {
+    border: 5px solid brown;
+}
+::placeholder {
+    color: crimson;
+}
+input:read-only {
+    background-color: darkgray;
+}
+input:read-write {
+    font-size: 20px;
+}
+:root {
+    background-color: paleturquoise;
+}
+::selection {
+    color: plum;
+    background-color: purple;
+}
+:target {
+    border: 2px solid #D4D4D4;
+    text-decoration: underline;
+}
+input:valid {
+    background-color:lightgreen;
+}
